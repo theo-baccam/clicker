@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+}
+
+#shop {
+    margin-top: 50px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
