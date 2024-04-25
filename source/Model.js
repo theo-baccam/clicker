@@ -16,6 +16,18 @@ class Model {
 
         this.elements = [];
     }
+
+    saveGameState() {
+        localStorage.setItem("points", this.points);
+
+        localStorage.setItem("DEFAULT_CLICK_VALUE", this.DEFAULT_CLICK_VALUE);
+        localStorage.setItem("clickValueUpgrades", this.clickValueUpgrades);
+
+        localStorage.setItem("DEFAULT_BOOST_CHANCE", this.DEFAULT_BOOST_CHANCE);
+        localStorage.setItem("boostChanceUpgrades", this.clickValueUpgrades);
+
+        localStorage.setItem("elements", this.elements)
+    }
 }
 
 
