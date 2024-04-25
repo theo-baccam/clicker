@@ -1,4 +1,22 @@
+class Model {
+    constructor(
+        points,
+        DEFAULT_CLICK_VALUE,
+        clickValueUpgrades,
+        DEFAULT_BOOST_CHANCE,
+        boostChanceUpgrades,
+    ) {
+        this.points = points
 
+        this.DEFAULT_CLICK_VALUE = DEFAULT_CLICK_VALUE;
+        this.clickValueUpgrades = clickValueUpgrades;
+
+        this.DEFAULT_BOOST_CHANCE = DEFAULT_BOOST_CHANCE;
+        this.boostChanceUpgrades = boostChanceUpgrades;
+
+        this.elements = [];
+    }
+}
 
 
 // local_storage.js
