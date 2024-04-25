@@ -14,6 +14,8 @@ class Model {
         this.boostChanceUpgrades;
 
         this.elements;
+
+        this.loadGameState()
     }
 
     loadGameState() {
@@ -37,15 +39,15 @@ class Model {
     isNewGame() {
         console.log("Checking if new game");
         let modelVariables = [
-            this.points,
-            this.DEFAULT_CLICK_VALUE,
-            this.clickValueUpgrades,
-            this.DEFAULT_BOOST_CHANCE,
-            this.boostChanceUpgrades,
-            this.elements,
+            "points",
+            "DEFAULT_CLICK_VALUE",
+            "clickValueUpgrades",
+            "DEFAULT_BOOST_CHANCE",
+            "boostChanceUpgrades",
+            "elements",
         ];
 
-        for (let i = 0; i < modelVariables; i++) {
+        for (let i = 0; i < modelVariables.length; i++) {
             if (localStorage.getItem(modelVariables[i]) === null) {
                 console.log(`${modelVariables[i]} is null`);
                 return true;
@@ -83,3 +85,6 @@ class Model {
         localStorage.setItem("elements", this.elements);
     }
 }
+
+
+export {Model};
