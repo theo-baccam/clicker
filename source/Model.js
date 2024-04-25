@@ -1,4 +1,4 @@
-import {Element} from "./Element.js"
+import {Element} from "./Element.js";
 
 
 class Model {
@@ -25,15 +25,15 @@ class Model {
             return;
         };
 
-        this.points = localStorage.getItem("points");
+        this.points = Number(localStorage.getItem("points"));
 
-        this.DEFAULT_CLICK_VALUE = localStorage.getItem("DEFAULT_CLICK_VALUE");
-        this.clickValueUpgrades = localStorage.getItem("clickValueUpgrades");
+        this.DEFAULT_CLICK_VALUE = Number(localStorage.getItem("DEFAULT_CLICK_VALUE"));
+        this.clickValueUpgrades = Number(localStorage.getItem("clickValueUpgrades"));
 
-        this.DEFAULT_BOOST_CHANCE = localStorage.getItem("DEFAULT_BOOST_CHANCE");
-        this.boostChanceUpgrades = localStorage.getItem("boostChanceUpgrades");
+        this.DEFAULT_BOOST_CHANCE = Number(localStorage.getItem("DEFAULT_BOOST_CHANCE"));
+        this.boostChanceUpgrades = Number(localStorage.getItem("boostChanceUpgrades"));
 
-        this.elements = localStorage.getItem("elements");
+        this.elements = JSON.parse(localStorage.getItem("elements"));
     }
 
     isNewGame() {
@@ -82,7 +82,18 @@ class Model {
         localStorage.setItem("DEFAULT_BOOST_CHANCE", this.DEFAULT_BOOST_CHANCE);
         localStorage.setItem("boostChanceUpgrades", this.clickValueUpgrades);
 
-        localStorage.setItem("elements", this.elements);
+        localStorage.setItem("elements", JSON.stringify(this.elements));
+    }
+
+    logGameState() {
+        console.log(
+            this.points,
+            this.DEFAULT_CLICK_VALUE,
+            this.clickValueUpgrades,
+            this.DEFAULT_BOOST_CHANCE,
+            this.boostChanceUpgrades,
+            this.elements
+        );
     }
 }
 
