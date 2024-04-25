@@ -1,62 +1,36 @@
-// Initialisation des variables
 let points = 0;
+let clickRate = 1;
 let clickValue = 1;
-let autoClickValue = 0;
-let autoClickInterval;
+let cps = 0;
 
-// Vérifier s'il y a des données stockées dans localStorage
-if (localStorage.getItem("points")) {
-    points = parseInt(localStorage.getItem("points"));
-    clickValue = parseInt(localStorage.getItem("clickValue"));
-    autoClickValue = parseInt(localStorage.getItem("autoClickValue"));
-}
-
-// Mise à jour de l'affichage
-function updateDisplay() {
-    document.getElementById("points").textContent = points;
-    document.getElementById("clickValue").textContent = clickValue;
-    document.getElementById("autoClickValue").textContent = autoClickValue;
-}
-
-// Gestion du clic
 document.getElementById("clickButton").addEventListener("click", function() {
     points += clickValue;
-    updateDisplay();
+    updatePoints();
 });
 
-// Achat d'un élément
-document.getElementById("buyItem").addEventListener("click", function() {
-    if (points >= 10) {
-        points -= 10;
-        clickValue += 1;
-        updateDisplay();
+document.getElementById("buyClickRate").addEventListener("click", function() {
+    if (points >= 20) {
+        points -= 20;
+        clickRate++;
+        updatePoints();
     }
 });
 
-// Achat d'un bonus
-document.getElementById("buyBonus").addEventListener("click", function() {
-    if (points >= 50) {
-        points -= 50;
-        autoClickValue += 1;
-        if (!autoClickInterval) {
-            autoClickInterval = setInterval(function() {
-                points += autoClickValue;
-                updateDisplay();
-            }, 1000);
-        }
-        updateDisplay();
+document.getElementById("buyClickValue").addEventListener("click", function() {
+    if (points >= 30) {
+        points -= 30;
+        clickValue++;
+        updatePoints();
     }
 });
 
-// Stocker les données dans localStorage
-function saveGame() {
-    localStorage.setItem("points", points);
-    localStorage.setItem("clickValue", clickValue);
-    localStorage.setItem("autoClickValue", autoClickValue);
+function updatePoints() {
+    document.getElementById("points").innerText = points;
+    cps = clickRate * clickValue;
+    document.getElementById("cps").innerText = cps;
 }
 
-// Sauvegarder régulièrement
-setInterval(saveGame, 30000);
-
-// Initialiser l'affichage
-updateDisplay();
+setInterval(function() {
+    points += cps;
+    updatePoints();
+}, 1000);

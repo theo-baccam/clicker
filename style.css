@@ -1,19 +1,58 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-image: url('Free  Wallpaper, Blog, Cute Background Images, Cookie Background Design Bakery Banner Photo Background PNG and Vectors.jpeg'); /* Replace 'background.jpg' with your desired image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.click-area {
+    margin-top: 50px;
+    position: relative; /* For animation */
+}
+
+.click-area img {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.1s; /* Smooth transition for animation */
+}
+
+.click-area img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.shop {
+    margin-top: 30px;
 }
 
 button {
     padding: 10px 20px;
     margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #bb7b62;
+    color: #0e0e0e;
+    transition: background-color 0.3s; /* Smooth transition for button hover */
 }
 
-#shop {
-    margin-top: 50px;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
+button:hover {
+    background-color: #bb7b62; /* Darker blue on hover */
 }
