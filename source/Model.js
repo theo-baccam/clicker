@@ -16,8 +16,26 @@ class Model {
         this.elements;
     }
 
+    loadGameState() {
+        console.log("Attempting to load save");
+        if (this.isNewGame()) {
+            this.newGameState();
+            return;
+        };
+
+        this.points = localStorage.getItem("points");
+
+        this.DEFAULT_CLICK_VALUE = localStorage.getItem("DEFAULT_CLICK_VALUE");
+        this.clickValueUpgrades = localStorage.getItem("clickValueUpgrades");
+
+        this.DEFAULT_BOOST_CHANCE = localStorage.getItem("DEFAULT_BOOST_CHANCE");
+        this.boostChanceUpgrades = localStorage.getItem("boostChanceUpgrades");
+
+        this.elements = localStorage.getItem("elements");
+    }
+
     isNewGame() {
-        console.log("Checking if new game")
+        console.log("Checking if new game");
         let modelVariables = [
             this.points,
             this.DEFAULT_CLICK_VALUE,
@@ -29,15 +47,16 @@ class Model {
 
         for (let i = 0; i < modelVariables; i++) {
             if (localStorage.getItem(modelVariables[i]) === null) {
-                console.log(`${modelVariables[i]} is null`)
-                this.newGameState();
-                return;
+                console.log(`${modelVariables[i]} is null`);
+                return true;
             };
         };
+
+        return false;
     }
 
     newGameState() {
-        console.log("Creating new game save")
+        console.log("Creating new game save");
         this.points = 0;
 
         this.DEFAULT_CLICK_VALUE = 1;
@@ -46,13 +65,13 @@ class Model {
         this.DEFAULT_BOOST_CHANCE = 1;
         this.boostChanceUpgrades = 0;
 
-        this.elements = []
+        this.elements = [];
 
         this.saveGameState();
     }
 
     saveGameState() {
-        console.log("Saving game state")
+        console.log("Saving game state");
         localStorage.setItem("points", this.points);
 
         localStorage.setItem("DEFAULT_CLICK_VALUE", this.DEFAULT_CLICK_VALUE);
@@ -61,6 +80,6 @@ class Model {
         localStorage.setItem("DEFAULT_BOOST_CHANCE", this.DEFAULT_BOOST_CHANCE);
         localStorage.setItem("boostChanceUpgrades", this.clickValueUpgrades);
 
-        localStorage.setItem("elements", this.elements)
+        localStorage.setItem("elements", this.elements);
     }
 }
