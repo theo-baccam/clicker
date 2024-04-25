@@ -33,7 +33,23 @@ class Model {
         this.DEFAULT_BOOST_CHANCE = Number(localStorage.getItem("DEFAULT_BOOST_CHANCE"));
         this.boostChanceUpgrades = Number(localStorage.getItem("boostChanceUpgrades"));
 
-        this.elements = JSON.parse(localStorage.getItem("elements"));
+        this.elements = [];
+        let elementJson = JSON.parse(localStorage.getItem("elements"));
+        for (let i = 0; i < elementJson.length; i++) {
+            let elementObject = elementJson[i];
+            this.elements.push(
+                new Element(
+                    elementObject["name"],
+                    elementObject["DEFAULT_PRICE"],
+                    elementObject["amount"],
+                    elementObject["DEFAULT_CLICK_RATE"],
+                    elementObject["clickRateUpgades"],
+                    elementObject["DEFAULT_CLICK_VALUE"],
+                    elementObject["clickValueUpgrades"],
+                    elementObject["spritePath"]
+                )
+            )
+        };
     }
 
     isNewGame() {
@@ -67,7 +83,9 @@ class Model {
         this.DEFAULT_BOOST_CHANCE = 1;
         this.boostChanceUpgrades = 0;
 
-        this.elements = [];
+        this.elements = [
+            new Element("grandma", 10, 0, 1, 0, 1, 0, "grandma.png"),
+        ];
 
         this.saveGameState();
     }
@@ -82,7 +100,24 @@ class Model {
         localStorage.setItem("DEFAULT_BOOST_CHANCE", this.DEFAULT_BOOST_CHANCE);
         localStorage.setItem("boostChanceUpgrades", this.clickValueUpgrades);
 
-        localStorage.setItem("elements", JSON.stringify(this.elements));
+        let elementsArray = []
+
+        for (let i = 0; i < this.elements.length; i++) {
+            let element = this.elements[i];
+            let elementObject = {
+                "name": element.name,
+                "DEFAULT_PRICE": element.DEFAULT_PRICE,
+                "amount": element.amount,
+                "DEFAULT_CLICK_RATE": element.DEFAULT_CLICK_RATE,
+                "clickRateUpgrades": element.clickRateUpgrades,
+                "DEFAULT_CLICK_VALUE": element.DEFAULT_CLICK_VALUE,
+                "clickValueUpgrades": element.clickValueUpgrades,
+                "spritePath": element.spritePath
+            };
+            elementsArray.push(elementObject);
+        };
+
+        localStorage.setItem("elements", JSON.stringify(elementsArray));
     }
 
     logGameState() {

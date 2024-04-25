@@ -1,4 +1,6 @@
 import {Model} from "./Model.js";
 
 
-new Model()
+let model = new Model();
+// So that model methods can be used in the console
+Window.model = model;
