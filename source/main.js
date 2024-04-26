@@ -1,6 +1,6 @@
-import {Model} from "./Model.js";
+import {Controller} from "./Controller.js";
 
 
-let model = new Model();
-// So that model methods can be used in the console
-Window.model = model;
+let controller = new Controller();
+// So that methods can be used in the console
+Window.controller = controller;
