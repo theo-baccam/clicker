@@ -6,6 +6,8 @@ class Model {
         console.log("Initializing Model")
 
         this.points;
+        this.pointsPerSecond = 0;
+
         this.elements;
 
         this.loadGameState()
