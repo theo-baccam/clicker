@@ -1,55 +1,55 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
     margin: 0;
     padding: 0;
+
+    display: flex;
+    flex-direction: row;
 }
 
-.container {
-    margin-top: 50px;
+
+#clickerSide {
+    height: 100vh;
+    width: 50%;
+
+    background-color: #EECC88;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+
+    position: relative;
 }
 
-h1 {
-    margin-bottom: 20px;
+#points {
+    background-color: #222222;
+    color: #FFFFFF;
+
+    width: 80%;
+    padding: 1em;
+
+    position: relative;
+    top: 1em;
+
+    text-align: center;
 }
 
-.click-area {
-    margin-top: 50px;
-    position: relative; /* For animation */
+#clickerButton {
+    width: 16em;
+    height: 16em;
+
+    background-color: #FFCC66;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.click-area img {
-    width: 200px;
-    cursor: pointer;
-    transition: transform 0.1s; /* Smooth transition for animation */
-}
 
-.click-area img:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
-}
+#elementsSide {
+    height: 100vh;
+    width: 50%;
 
-.shop {
-    margin-top: 30px;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #bb7b62;
-    color: #0e0e0e;
-    transition: background-color 0.3s; /* Smooth transition for button hover */
-}
-
-button:hover {
-    background-color: #bb7b62; /* Darker blue on hover */
+    background-color: #BBBBFF;
 }

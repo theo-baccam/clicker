@@ -7,22 +7,16 @@
     </head>
 
     <body>
-        <div class="container">
-            <h1>Clicker Game</h1>
-            <p>Points: <span id="points">0</span></p>
-            <p>Cookies Per Second: <span id="cps">0</span></p>
-
-            <div class="click-area">
-                <h2>Cliquez sur l'image !</h2>
-                <img alt="Cliquez ici" id="clickButton" style="background-color: chocolate;">
+        <div id="clickerSide">
+            <div id="points">
+                <h1 id="totalPoints">0 points</h1>
+                <h2 id="pointsPerSecond">0 points per second</h2>
             </div>
+            <img id="clickerButton">
+        </div>
 
-            <div class="shop">
-                <h2>Boutique</h2>
-                <button id="buyClickRate">Upgrade clickRate (20 points)</button>
-                <button id="buyClickValue">Upgrade clickValue (30 points)</button>
-                <button id="sellItem">Vendre élément (10 points)</button>
-            </div>
+        <div id="elementsSide">
+            <span>  </span>
         </div>
     </body>
 </html>
