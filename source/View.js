@@ -3,9 +3,15 @@ class View {
     }
 
     displayTotalPoints(points) {
-        let totalPoints = document.getElementById("totalPoints")
+        let totalPoints = document.getElementById("totalPoints");
 
-        totalPoints.innerHTML = `${points} points`
+        totalPoints.innerHTML = `${points} points`;
+    }
+
+    displayPointsPerSecond(pointsPerSecondValue) {
+        let pointsPerSecond = document.getElementById("pointsPerSecond");
+
+        pointsPerSecond.innerHTML = `${pointsPerSecondValue} points/second`
     }
 }
 
