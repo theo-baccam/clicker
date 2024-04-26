@@ -31,8 +31,6 @@ class Model {
                     elementObject["name"],
                     elementObject["DEFAULT_PRICE"],
                     elementObject["amount"],
-                    elementObject["DEFAULT_CLICK_RATE"],
-                    elementObject["clickRateUpgades"],
                     elementObject["DEFAULT_CLICK_VALUE"],
                     elementObject["clickValueUpgrades"],
                     elementObject["spritePath"]
@@ -59,7 +57,7 @@ class Model {
         this.boostChanceUpgrades = 0;
 
         this.elements = [
-            new Element("grandma", 10, 0, 1, 0, 1, 0, "grandma.png"),
+            new Element("grandma", 10, 0, 1, 0, "grandma.png"),
         ];
 
         this.saveGameState();
