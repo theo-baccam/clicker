@@ -53,3 +53,10 @@ body {
 
     background-color: #BBBBFF;
 }
+
+.elementDiv {
+    height: 8em;
+    width: 100%;
+
+    background-color: #FFFFFF;
+}

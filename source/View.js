@@ -13,6 +13,15 @@ class View {
 
         pointsPerSecond.innerHTML = `${pointsPerSecondValue} points/second`
     }
+
+    displayElement(element) {
+        let elementDiv = document.createElement("div")
+        elementDiv.className = "elementDiv"
+        elementDiv.innerHTML = element.name
+
+        let elementsSide = document.getElementById("elementsSide")
+        elementsSide.appendChild(elementDiv)
+    }
 }
 
 

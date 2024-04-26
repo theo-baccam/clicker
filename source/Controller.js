@@ -15,14 +15,15 @@ class Controller {
         this.view.displayPointsPerSecond(this.model.pointsPerSecond)
         this.bindClickerClick();
         this.pointsPerSecondsInterval();
+        this.displayElements();
     }
 
     bindClickerClick() {
         let clickerButton = document.getElementById("clickerButton");
         
         clickerButton.addEventListener("click", async () => {
-            this.model.points += 1;
-            this.model.pointsPerSecond += 1;
+            this.model.points++;
+            this.model.pointsPerSecond++;
             await this.model.saveGameState();
             this.view.displayTotalPoints(this.model.points);
         });
@@ -35,6 +36,13 @@ class Controller {
         },
         1000
         )
+    }
+
+    displayElements() {
+        for (let i = 0; i < this.model.elements.length; i++) {
+            let element = this.model.elements[i]
+            this.view.displayElement(element)
+        }
     }
 }
 
