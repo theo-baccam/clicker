@@ -75,8 +75,6 @@ class Model {
                 "name": element.name,
                 "DEFAULT_PRICE": element.DEFAULT_PRICE,
                 "amount": element.amount,
-                "DEFAULT_CLICK_RATE": element.DEFAULT_CLICK_RATE,
-                "clickRateUpgrades": element.clickRateUpgrades,
                 "DEFAULT_CLICK_VALUE": element.DEFAULT_CLICK_VALUE,
                 "clickValueUpgrades": element.clickValueUpgrades,
                 "spritePath": element.spritePath

@@ -55,8 +55,27 @@ body {
 }
 
 .elementDiv {
+    display: flex;
+    flex-direction: row;
+
     height: 8em;
     width: 100%;
 
-    background-color: #FFFFFF;
+    outline-style: solid;
+    outline-width: 4px;
+}
+
+.elementDisplayDiv {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.elementButtonDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+.elementButton {
+    height: 33%;
 }
