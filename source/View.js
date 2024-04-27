@@ -2,7 +2,11 @@ class View {
     displayTotalPoints(points) {
         let totalPoints = document.getElementById("totalPoints");
 
+        if (points % 1 === 0) {
+        totalPoints.innerHTML = `${points} points`;
+        } else {
         totalPoints.innerHTML = `${points.toFixed(2)} points`;
+        };
     }
 
     displayPointsPerSecond(pointsPerSecondValue) {
