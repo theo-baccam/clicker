@@ -71,7 +71,7 @@ body {
     flex-grow: 1;
 }
 
-.elementButtonDiv {
+.elementButtonsDiv {
     display: flex;
     flex-direction: column;
 }
