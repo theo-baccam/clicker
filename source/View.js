@@ -3,9 +3,9 @@ class View {
         let totalPoints = document.getElementById("totalPoints");
 
         if (points % 1 === 0) {
-        totalPoints.innerHTML = `${points} points`;
+            totalPoints.innerHTML = `${points} points`;
         } else {
-        totalPoints.innerHTML = `${points.toFixed(2)} points`;
+            totalPoints.innerHTML = `${points.toFixed(2)} points`;
         };
     }
 
