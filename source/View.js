@@ -31,6 +31,14 @@ class View {
         `;
         elementDiv.appendChild(elementDisplayDiv);
 
+        for (let i = 0; i < element.amount; i++) {
+            let elementSprite = document.createElement("img");
+            elementSprite.className = "elementSprite";
+            elementSprite.className = `${element.name}Sprite`;
+            elementSprite.src = element.spritePath;
+            elementDisplayDiv.appendChild(elementSprite);
+        };
+
         let elementButtonsDiv = document.createElement("div");
         elementButtonsDiv.className = "elementButtonsDiv";
         elementButtonsDiv.id = `${element.name}ButtonsDiv`;
@@ -61,6 +69,25 @@ class View {
         elementDisplayDiv.innerHTML = `
             ${element.name} ${element.amount} ${element.clickValueUpgrades}
         `;
+    }
+
+    displayElementSprite(element) {
+        let elementSprites = document.getElementsByClassName(`
+            ${element.name}Sprite
+        `);
+        for (let i = 0; i < elementSprites.length; i++) {
+            let elementSprite = elementSprite[i];
+            elementSprite.remove()
+        };
+
+        let elementDisplayDiv = document.getElementById(`${element.name}DisplayDiv`);
+        for (let i = 0; i < element.amount; i++) {
+            let elementSprite = document.createElement("img");
+            elementSprite.className = "elementSprite";
+            elementSprite.className = `${element.name}Sprite`;
+            elementSprite.src = element.spritePath;
+            elementDisplayDiv.appendChild(elementSprite);
+        };
     }
 }
 

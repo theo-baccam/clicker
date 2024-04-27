@@ -57,8 +57,8 @@ class Model {
         this.boostChanceUpgrades = 0;
 
         this.elements = [
-            new Element("grandma", 10, 0, 1, 0, ""),
-            new Element("farm", 110, 0, 11, 0, ""),
+            new Element("grandma", 10, 0, 1, 0, "assets/grandma.png"),
+            new Element("farm", 110, 0, 11, 0, "assets/farm.png"),
         ];
 
         this.saveGameState();

@@ -69,6 +69,12 @@ body {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    overflow: scroll;
+}
+
+.elementSprite {
+    height: 90%;
+    object-fit: contain;
 }
 
 .elementButtonsDiv {
