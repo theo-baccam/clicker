@@ -9,9 +9,6 @@ class Element {
     ) {
         this.name = name;
 
-        // The price to buy an element will be:
-        // price = ELEMENT_DEFAULT_PRICE * Math.pow(1.5 * elementAmount)
-        // Unless there's no elements, in that case it'll be just default price
         this.DEFAULT_PRICE = DEFAULT_PRICE
         this.amount = amount;
 

@@ -19,6 +19,7 @@ class Controller {
         this.displayElements();
         this.bindBuyButtons();
         this.bindSellButtons();
+        this.bindUpgradeButtons();
     }
 
     bindClickerClick() {
@@ -62,7 +63,7 @@ class Controller {
                     element.amount++;
                     await this.model.saveGameState();
                     this.view.displayTotalPoints(this.model.points);
-                    this.view.displayElementAmount(element);
+                    this.view.displayElementText(element);
                 };
             });
         };
@@ -83,8 +84,30 @@ class Controller {
                     element.amount--;
                     await this.model.saveGameState();
                     this.view.displayTotalPoints(this.model.points);
-                    this.view.displayElementAmount(element);
+                    this.view.displayElementText(element);
                 }
+            });
+        };
+    }
+
+    bindUpgradeButtons() {
+        for (let i = 0; i < this.model.elements.length; i++) {
+            let element = this.model.elements[i];
+            let upgradeButtons = document.getElementById(
+                `${element.name}UpgradeButton`
+            );
+            upgradeButtons.addEventListener("click", async () => {
+                let elementUpgradePrice = (
+                    element.DEFAULT_PRICE
+                    * Math.pow(3.2, element.clickValueUpgrades)
+                );
+                if (elementUpgradePrice <= this.model.points) {
+                    this.model.points -= elementUpgradePrice;
+                    element.clickValueUpgrades++;
+                    await this.model.saveGameState();
+                    this.view.displayTotalPoints(this.model.points);
+                    this.view.displayElementText(element);
+                };
             });
         };
     }

@@ -22,7 +22,9 @@ class View {
         let elementDisplayDiv = document.createElement("div");
         elementDisplayDiv.className = "elementDisplayDiv";
         elementDisplayDiv.id = `${element.name}DisplayDiv`;
-        elementDisplayDiv.innerHTML = `${element.name} ${element.amount}`;
+        elementDisplayDiv.innerHTML = `
+            ${element.name} ${element.amount} ${element.clickValueUpgrades}
+        `;
         elementDiv.appendChild(elementDisplayDiv);
 
         let elementButtonsDiv = document.createElement("div");
@@ -48,11 +50,13 @@ class View {
         elementButtonsDiv.appendChild(elementUpgradeButton);
     }
 
-    displayElementAmount(element) {
+    displayElementText(element) {
         let elementDisplayDiv = (
             document.getElementById(`${element.name}DisplayDiv`)
         );
-        elementDisplayDiv.innerHTML = `${element.name} ${element.amount}`;
+        elementDisplayDiv.innerHTML = `
+            ${element.name} ${element.amount} ${element.clickValueUpgrades}
+        `;
     }
 }
 
