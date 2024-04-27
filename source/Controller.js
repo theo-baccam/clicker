@@ -58,13 +58,15 @@ class Controller {
                     element.DEFAULT_PRICE
                     * Math.pow(1.6, element.amount)
                 );
-                if (elementPrice <= this.model.points) {
-                    this.model.points -= elementPrice;
-                    element.amount++;
-                    await this.model.saveGameState();
-                    this.view.displayTotalPoints(this.model.points);
-                    this.view.displayElementText(element);
+                if (elementPrice > this.model.points) {
+                    return;
                 };
+
+                this.model.points -= elementPrice;
+                element.amount++;
+                await this.model.saveGameState();
+                this.view.displayTotalPoints(this.model.points);
+                this.view.displayElementText(element);
             });
         };
     }
@@ -74,18 +76,20 @@ class Controller {
             let element = this.model.elements[i];
             let sellButton = document.getElementById(`${element.name}SellButton`);
             sellButton.addEventListener("click", async () => {
-                if (element.amount > 0) {
-                    let elementSellPrice = (
-                        element.DEFAULT_PRICE
-                        * Math.pow(1.6, element.amount - 1)
-                        / 2
-                    );
-                    this.model.points += elementSellPrice;
-                    element.amount--;
-                    await this.model.saveGameState();
-                    this.view.displayTotalPoints(this.model.points);
-                    this.view.displayElementText(element);
+                if (element.amount <= 0) {
+                    return;
                 }
+
+                let elementSellPrice = (
+                    element.DEFAULT_PRICE
+                    * Math.pow(1.6, element.amount - 1)
+                    / 2
+                );
+                this.model.points += elementSellPrice;
+                element.amount--;
+                await this.model.saveGameState();
+                this.view.displayTotalPoints(this.model.points);
+                this.view.displayElementText(element);
             });
         };
     }
@@ -101,13 +105,15 @@ class Controller {
                     element.DEFAULT_PRICE
                     * Math.pow(3.2, element.clickValueUpgrades)
                 );
-                if (elementUpgradePrice <= this.model.points) {
-                    this.model.points -= elementUpgradePrice;
-                    element.clickValueUpgrades++;
-                    await this.model.saveGameState();
-                    this.view.displayTotalPoints(this.model.points);
-                    this.view.displayElementText(element);
+                if (elementUpgradePrice > this.model.points) {
+                    return;
                 };
+
+                this.model.points -= elementUpgradePrice;
+                element.clickValueUpgrades++;
+                await this.model.saveGameState();
+                this.view.displayTotalPoints(this.model.points);
+                this.view.displayElementText(element);
             });
         };
     }
