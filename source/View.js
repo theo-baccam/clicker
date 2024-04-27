@@ -2,7 +2,7 @@ class View {
     displayTotalPoints(points) {
         let totalPoints = document.getElementById("totalPoints");
 
-        totalPoints.innerHTML = `${points} points`;
+        totalPoints.innerHTML = `${points.toFixed(2)} points`;
     }
 
     displayPointsPerSecond(pointsPerSecondValue) {

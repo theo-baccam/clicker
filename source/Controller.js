@@ -15,8 +15,10 @@ class Controller {
         this.view.displayPointsPerSecond(this.model.pointsPerSecond)
         this.bindClickerClick();
         this.pointsPerSecondsInterval();
+
         this.displayElements();
         this.bindBuyButtons();
+        this.bindSellButtons();
     }
 
     bindClickerClick() {
@@ -62,6 +64,27 @@ class Controller {
                     this.view.displayTotalPoints(this.model.points);
                     this.view.displayElementAmount(element);
                 };
+            });
+        };
+    }
+
+    bindSellButtons() {
+        for (let i = 0; i < this.model.elements.length; i++) {
+            let element = this.model.elements[i];
+            let sellButton = document.getElementById(`${element.name}SellButton`);
+            sellButton.addEventListener("click", async () => {
+                if (element.amount > 0) {
+                    let elementSellPrice = (
+                        element.DEFAULT_PRICE
+                        * Math.pow(1.6, element.amount - 1)
+                        / 2
+                    );
+                    this.model.points += elementSellPrice;
+                    element.amount--;
+                    await this.model.saveGameState();
+                    this.view.displayTotalPoints(this.model.points);
+                    this.view.displayElementAmount(element);
+                }
             });
         };
     }
