@@ -128,6 +128,7 @@ class Controller {
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementText(element);
+                this.view.displayElementSprite(element);
             });
         };
     }
