@@ -34,7 +34,19 @@ class Controller {
     }
 
     pointsPerSecondsInterval() {
-        setInterval(() => {
+        setInterval(async () => {
+            for (let i = 0; i < this.model.elements.length; i++) {
+                let element = this.model.elements[i];
+                let addedPoints = (
+                    element.DEFAULT_CLICK_VALUE
+                    * (element.clickValueUpgrades + 1)
+                    * element.amount
+                ); 
+                this.model.points += addedPoints;
+                await this.model.saveGameState();
+                this.model.pointsPerSecond += addedPoints;
+            };
+            this.view.displayTotalPoints(this.model.points);
             this.view.displayPointsPerSecond(this.model.pointsPerSecond);
             this.model.pointsPerSecond = 0;
         },
