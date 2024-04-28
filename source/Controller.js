@@ -25,11 +25,16 @@ class Controller {
     bindClickerClick() {
         let clickerButton = document.getElementById("clickerButton");
         
-        clickerButton.addEventListener("click", async () => {
+        clickerButton.addEventListener("mousedown", async () => {
+            this.view.displayClickerDown();
             this.model.points++;
             this.model.pointsPerSecond++;
             await this.model.saveGameState();
             this.view.displayTotalPoints(this.model.points);
+        });
+
+        clickerButton.addEventListener("mouseup", () => {
+            this.view.displayClickerUp();
         });
     }
 

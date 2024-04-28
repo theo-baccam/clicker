@@ -12,7 +12,17 @@ class View {
     displayPointsPerSecond(pointsPerSecondValue) {
         let pointsPerSecond = document.getElementById("pointsPerSecond");
 
-        pointsPerSecond.innerHTML = `${pointsPerSecondValue} points/second`
+        pointsPerSecond.innerHTML = `${pointsPerSecondValue} points/second`;
+    }
+
+    displayClickerDown() {
+        let clickerButton = document.getElementById("clickerButton");
+        clickerButton.src = "assets/shovel2.png"
+    }
+
+    displayClickerUp() {
+        let clickerButton = document.getElementById("clickerButton");
+        clickerButton.src = "assets/shovel1.png"
     }
 
     displayElement(element) {
