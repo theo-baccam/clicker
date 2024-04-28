@@ -3,16 +3,16 @@ class View {
         let totalPoints = document.getElementById("totalPoints");
 
         if (points % 1 === 0) {
-            totalPoints.innerHTML = `${points} points`;
+            totalPoints.innerHTML = `${points}$`;
         } else {
-            totalPoints.innerHTML = `${points.toFixed(2)} points`;
+            totalPoints.innerHTML = `${points.toFixed(2)}$`;
         };
     }
 
     displayPointsPerSecond(pointsPerSecondValue) {
         let pointsPerSecond = document.getElementById("pointsPerSecond");
 
-        pointsPerSecond.innerHTML = `${pointsPerSecondValue} points/second`;
+        pointsPerSecond.innerHTML = `${pointsPerSecondValue}$ per sec.`;
     }
 
     displayClickerDown() {
