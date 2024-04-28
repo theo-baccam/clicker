@@ -25,6 +25,12 @@ class View {
         clickerButton.src = "assets/shovel1.png"
     }
 
+    updatePriceText(string) {
+        let priceText = document.getElementById("price");
+        priceText.innerHTML = string;
+    }
+
+
     displayElement(element) {
         let elementsSide = document.getElementById("elementsSide");
 

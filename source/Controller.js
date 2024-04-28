@@ -73,11 +73,14 @@ class Controller {
         for (let i = 0; i < this.model.elements.length; i++) {
             let element = this.model.elements[i];
             let buyButton = document.getElementById(`${element.name}BuyButton`);
+            let elementPrice = (
+                element.DEFAULT_PRICE
+                * Math.pow(1.6, element.amount)
+            );
+            buyButton.addEventListener("pointerenter", () => {
+                this.view.updatePriceText(`-${elementPrice.toFixed(2)}$`);
+            });
             buyButton.addEventListener("click", async () => {
-                let elementPrice = (
-                    element.DEFAULT_PRICE
-                    * Math.pow(1.6, element.amount)
-                );
                 if (elementPrice > this.model.points) {
                     return;
                 };
@@ -88,6 +91,14 @@ class Controller {
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementText(element);
                 this.view.displayElementSprite(element);
+                let newPrice = (
+                    element.DEFAULT_PRICE
+                    * Math.pow(1.6, element.amount)
+                );
+                this.view.updatePriceText(`-${newPrice.toFixed(2)}$`)
+            });
+            buyButton.addEventListener("pointerleave", () => {
+                this.view.updatePriceText("");
             });
         };
     }
@@ -96,22 +107,39 @@ class Controller {
         for (let i = 0; i < this.model.elements.length; i++) {
             let element = this.model.elements[i];
             let sellButton = document.getElementById(`${element.name}SellButton`);
+            let elementSellPrice = (
+                element.DEFAULT_PRICE
+                * Math.pow(1.6, element.amount - 1)
+                / 2
+            );
+            if (element.amount <= 0) {
+                elementSellPrice = 0
+            };
+            sellButton.addEventListener("pointerenter", () => {
+                this.view.updatePriceText(`+${elementSellPrice.toFixed(2)}$`);
+            });
             sellButton.addEventListener("click", async () => {
                 if (element.amount <= 0) {
                     return;
                 }
-
-                let elementSellPrice = (
-                    element.DEFAULT_PRICE
-                    * Math.pow(1.6, element.amount - 1)
-                    / 2
-                );
                 this.model.points += elementSellPrice;
                 element.amount--;
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementText(element);
                 this.view.displayElementSprite(element);
+                let newPrice = (
+                    element.DEFAULT_PRICE
+                    * Math.pow(1.6, element.amount - 1)
+                    / 2
+                );
+                if (element.amount <= 0) {
+                    newPrice = 0
+                };
+                this.view.updatePriceText(`+${newPrice.toFixed(2)}$`);
+            });
+            sellButton.addEventListener("pointerleave", () => {
+                this.view.updatePriceText("");
             });
         };
     }
@@ -122,11 +150,14 @@ class Controller {
             let upgradeButtons = document.getElementById(
                 `${element.name}UpgradeButton`
             );
+            let elementUpgradePrice = (
+                element.DEFAULT_PRICE
+                * Math.pow(3.2, element.clickValueUpgrades)
+            );
+            upgradeButtons.addEventListener("pointerenter", () => {
+                this.view.updatePriceText(`-${elementUpgradePrice.toFixed(2)}$`);
+            });
             upgradeButtons.addEventListener("click", async () => {
-                let elementUpgradePrice = (
-                    element.DEFAULT_PRICE
-                    * Math.pow(3.2, element.clickValueUpgrades)
-                );
                 if (elementUpgradePrice > this.model.points) {
                     return;
                 };
@@ -137,6 +168,14 @@ class Controller {
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementText(element);
                 this.view.displayElementSprite(element);
+                let newPrice = (
+                    element.DEFAULT_PRICE
+                    * Math.pow(3.2, element.clickValueUpgrades)
+                );
+                this.view.updatePriceText(`-${newPrice.toFixed(2)}$`);
+            });
+            upgradeButtons.addEventListener("pointerleave", () => {
+                this.view.updatePriceText("");
             });
         };
     }
