@@ -37,6 +37,9 @@ class Controller {
         setInterval(async () => {
             for (let i = 0; i < this.model.elements.length; i++) {
                 let element = this.model.elements[i];
+                if (element.amount <= 0) {
+                    break;
+                };
                 let addedPoints = (
                     element.DEFAULT_CLICK_VALUE
                     * (element.clickValueUpgrades + 1)
