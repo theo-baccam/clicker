@@ -33,8 +33,7 @@ class View {
 
         for (let i = 0; i < element.amount; i++) {
             let elementSprite = document.createElement("img");
-            elementSprite.className = "elementSprite";
-            elementSprite.className = `${element.name}Sprite`;
+            elementSprite.className = `elementSprite ${element.name}Sprite`;
             elementSprite.src = element.spritePath;
             elementDisplayDiv.appendChild(elementSprite);
         };
@@ -83,8 +82,7 @@ class View {
         let elementDisplayDiv = document.getElementById(`${element.name}DisplayDiv`);
         for (let i = 0; i < element.amount; i++) {
             let elementSprite = document.createElement("img");
-            elementSprite.className = "elementSprite";
-            elementSprite.className = `${element.name}Sprite`;
+            elementSprite.className = `elementSprite ${element.name}Sprite`;
             elementSprite.src = element.spritePath;
             elementDisplayDiv.appendChild(elementSprite);
         };

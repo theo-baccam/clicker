@@ -73,7 +73,10 @@ body {
 }
 
 .elementSprite {
-    height: 90%;
+    height: 64px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
     object-fit: contain;
 }
 
