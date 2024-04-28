@@ -80,6 +80,7 @@ body {
 .elementButtonsDiv {
     display: flex;
     flex-direction: column;
+    flex-basis: content;
 }
 
 .elementButton {
