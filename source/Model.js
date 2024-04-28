@@ -58,7 +58,7 @@ class Model {
 
         this.elements = [
             new Element("duo", 10, 0, 1, 0, "assets/duo.png"),
-            new Element("farm", 110, 0, 11, 0, "assets/farm.png"),
+            new Element("line", 110, 0, 11, 0, "assets/line.png"),
         ];
 
         this.saveGameState();
