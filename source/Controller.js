@@ -89,7 +89,6 @@ class Controller {
                 element.amount++;
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
-                this.view.displayElementText(element);
                 this.view.displayElementSprite(element);
                 let newPrice = (
                     element.DEFAULT_PRICE
@@ -126,7 +125,6 @@ class Controller {
                 element.amount--;
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
-                this.view.displayElementText(element);
                 this.view.displayElementSprite(element);
                 let newPrice = (
                     element.DEFAULT_PRICE
@@ -166,7 +164,6 @@ class Controller {
                 element.clickValueUpgrades++;
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
-                this.view.displayElementText(element);
                 this.view.displayElementSprite(element);
                 let newPrice = (
                     element.DEFAULT_PRICE

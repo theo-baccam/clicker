@@ -42,9 +42,6 @@ class View {
         let elementDisplayDiv = document.createElement("div");
         elementDisplayDiv.className = "elementDisplayDiv";
         elementDisplayDiv.id = `${element.name}DisplayDiv`;
-        elementDisplayDiv.innerHTML = `
-            ${element.name} ${element.amount} ${element.clickValueUpgrades}
-        `;
         elementDiv.appendChild(elementDisplayDiv);
 
         for (let i = 0; i < element.amount; i++) {
@@ -79,15 +76,6 @@ class View {
         elementUpgradeButton.id = `${element.name}UpgradeButton`;
         elementUpgradeButton.src = "assets/upgrade.png";
         elementButtonsDiv.appendChild(elementUpgradeButton);
-    }
-
-    displayElementText(element) {
-        let elementDisplayDiv = (
-            document.getElementById(`${element.name}DisplayDiv`)
-        );
-        elementDisplayDiv.innerHTML = `
-            ${element.name} ${element.amount} ${element.clickValueUpgrades}
-        `;
     }
 
     displayElementSprite(element) {
