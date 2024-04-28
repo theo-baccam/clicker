@@ -51,8 +51,6 @@ class View {
         let elementButtonsDiv = document.createElement("div");
         elementButtonsDiv.className = "elementButtonsDiv";
         elementButtonsDiv.id = `${element.name}ButtonsDiv`;
-        const width = elementDisplayDiv.offsetHeight / 3;
-        elementButtonsDiv.style.width = `${width}px`;
         elementDiv.appendChild(elementButtonsDiv);
 
         let elementBuyButton = document.createElement("button");
