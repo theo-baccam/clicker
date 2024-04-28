@@ -53,19 +53,25 @@ class View {
         elementButtonsDiv.id = `${element.name}ButtonsDiv`;
         elementDiv.appendChild(elementButtonsDiv);
 
-        let elementBuyButton = document.createElement("button");
-        elementBuyButton.className = "elementButton"
-        elementBuyButton.id = `${element.name}BuyButton`
+        let elementBuyButton = document.createElement("input");
+        elementBuyButton.type = "image";
+        elementBuyButton.className = "elementButton";
+        elementBuyButton.id = `${element.name}BuyButton`;
+        elementBuyButton.src = "assets/buy.png";
         elementButtonsDiv.appendChild(elementBuyButton);
 
-        let elementSellButton = document.createElement("button");
-        elementSellButton.className = "elementButton"
-        elementSellButton.id = `${element.name}SellButton`
+        let elementSellButton = document.createElement("input");
+        elementSellButton.type = "image";
+        elementSellButton.className = "elementButton";
+        elementSellButton.id = `${element.name}SellButton`;
+        elementSellButton.src = "assets/sell.png";
         elementButtonsDiv.appendChild(elementSellButton);
 
-        let elementUpgradeButton = document.createElement("button");
-        elementUpgradeButton.className = "elementButton"
-        elementUpgradeButton.id = `${element.name}UpgradeButton`
+        let elementUpgradeButton = document.createElement("input");
+        elementUpgradeButton.type = "image";
+        elementUpgradeButton.className = "elementButton";
+        elementUpgradeButton.id = `${element.name}UpgradeButton`;
+        elementUpgradeButton.src = "assets/upgrade.png";
         elementButtonsDiv.appendChild(elementUpgradeButton);
     }
 
