@@ -65,7 +65,7 @@ body {
     object-fit: contain;
 }
 
-#price {
+#popup {
     position: absolute;
     bottom: 10%;
     color: #FFF1E8;

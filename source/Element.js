@@ -18,6 +18,31 @@ class Element {
         // spritePath is a string that points to a sprite image
         this.spritePath = spritePath;
     }
+
+    getBuyPrice() {
+        return (
+            this.DEFAULT_PRICE
+            * Math.pow(1.6, this.amount)
+        );
+    }
+
+    getSellPrice() {
+        if (this.amount === 0) {
+            return 0;
+        };
+        return (
+            this.DEFAULT_PRICE
+            * Math.pow(1.6, this.amount - 1)
+            / 2
+        );
+    }
+
+    getUpgradePrice() {
+        return (
+            this.DEFAULT_PRICE
+            * Math.pow(3.2, this.clickValueUpgrades)
+        );
+    }
 }
 
 export {Element};
