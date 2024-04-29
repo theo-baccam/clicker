@@ -83,8 +83,8 @@ class View {
             ${element.name}Sprite
         `);
         for (let i = 0; i < elementSprites.length; i++) {
-            let elementSprite = elementSprite[i];
-            elementSprite.remove()
+            let elementSprite = elementSprites[i];
+            elementSprite.remove();
         };
 
         let elementDisplayDiv = document.getElementById(`${element.name}DisplayDiv`);
