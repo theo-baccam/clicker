@@ -56,22 +56,19 @@ class View {
         elementButtonsDiv.id = `${element.name}ButtonsDiv`;
         elementDiv.appendChild(elementButtonsDiv);
 
-        let elementBuyButton = document.createElement("input");
-        elementBuyButton.type = "image";
+        let elementBuyButton = document.createElement("img");
         elementBuyButton.className = "elementButton";
         elementBuyButton.id = `${element.name}BuyButton`;
         elementBuyButton.src = "assets/buy.png";
         elementButtonsDiv.appendChild(elementBuyButton);
 
-        let elementSellButton = document.createElement("input");
-        elementSellButton.type = "image";
+        let elementSellButton = document.createElement("img");
         elementSellButton.className = "elementButton";
         elementSellButton.id = `${element.name}SellButton`;
         elementSellButton.src = "assets/sell.png";
         elementButtonsDiv.appendChild(elementSellButton);
 
-        let elementUpgradeButton = document.createElement("input");
-        elementUpgradeButton.type = "image";
+        let elementUpgradeButton = document.createElement("img");
         elementUpgradeButton.className = "elementButton";
         elementUpgradeButton.id = `${element.name}UpgradeButton`;
         elementUpgradeButton.src = "assets/upgrade.png";
@@ -82,9 +79,8 @@ class View {
         let elementSprites = document.getElementsByClassName(`
             ${element.name}Sprite
         `);
-        for (let i = 0; i < elementSprites.length; i++) {
-            let elementSprite = elementSprites[i];
-            elementSprite.remove();
+        while (elementSprites[0]) {
+            elementSprites[0].remove();
         };
 
         let elementDisplayDiv = document.getElementById(`${element.name}DisplayDiv`);
