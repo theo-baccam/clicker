@@ -35,6 +35,20 @@ class View {
         amountText.innerHTML = `Amount: ${amount}`;
     }
 
+    updateUpgradesText(element) {
+        let upgradesText = document.getElementById("upgrades")
+        if (element === null) {
+            upgradesText.innerHTML = "";
+            return;
+        };
+
+        upgradesText.innerHTML = `
+            Click Value: 
+            ${element.getClickValue()} 
+            (${element.clickValueUpgrades})
+        `
+    }
+
     updatePriceText(string) {
         let priceText = document.getElementById("price");
         priceText.innerHTML = string;

@@ -43,6 +43,14 @@ class Element {
             * Math.pow(3.2, this.clickValueUpgrades)
         );
     }
+
+    getClickValue() {
+        return (
+        this.DEFAULT_CLICK_VALUE
+        * (this.clickValueUpgrades + 1)
+        * this.amount
+        ); 
+    }
 }
 
 export {Element};

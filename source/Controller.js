@@ -45,14 +45,9 @@ class Controller {
                 if (element.amount <= 0) {
                     break;
                 };
-                let addedPoints = (
-                    element.DEFAULT_CLICK_VALUE
-                    * (element.clickValueUpgrades + 1)
-                    * element.amount
-                ); 
-                this.model.points += addedPoints;
+                this.model.points += element.getClickValue();
                 await this.model.saveGameState();
-                this.model.pointsPerSecond += addedPoints;
+                this.model.pointsPerSecond += element.getClickValue();
             };
             this.view.displayTotalPoints(this.model.points);
             this.view.displayPointsPerSecond(this.model.pointsPerSecond);
@@ -74,7 +69,8 @@ class Controller {
             let element = this.model.elements[i];
             let buyButton = document.getElementById(`${element.name}BuyButton`);
             buyButton.addEventListener("pointerenter", () => {
-                this.view.updateAmountText(element.amount)
+                this.view.updateAmountText(element.amount);
+                this.view.updateUpgradesText(element);
                 this.view.updatePriceText(`-${element.getBuyPrice().toFixed(2)}$`);
             });
             buyButton.addEventListener("click", async () => {
@@ -87,11 +83,13 @@ class Controller {
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementSprite(element);
-                this.view.updateAmountText(element.amount)
+                this.view.updateAmountText(element.amount);
+                this.view.updateUpgradesText(element);
                 this.view.updatePriceText(`-${element.getBuyPrice().toFixed(2)}$`);
             });
             buyButton.addEventListener("pointerleave", () => {
-                this.view.updateAmountText(null)
+                this.view.updateAmountText(null);
+                this.view.updateUpgradesText(null);
                 this.view.updatePriceText("");
             });
         };
@@ -102,7 +100,8 @@ class Controller {
             let element = this.model.elements[i];
             let sellButton = document.getElementById(`${element.name}SellButton`);
             sellButton.addEventListener("pointerenter", () => {
-                this.view.updateAmountText(element.amount)
+                this.view.updateAmountText(element.amount);
+                this.view.updateUpgradesText(element);
                 this.view.updatePriceText(`+${element.getSellPrice().toFixed(2)}$`);
             });
             sellButton.addEventListener("click", async () => {
@@ -111,11 +110,13 @@ class Controller {
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementSprite(element);
-                this.view.updateAmountText(element.amount)
+                this.view.updateAmountText(element.amount);
+                this.view.updateUpgradesText(element);
                 this.view.updatePriceText(`+${element.getSellPrice().toFixed(2)}$`);
             });
             sellButton.addEventListener("pointerleave", () => {
-                this.view.updateAmountText(null)
+                this.view.updateAmountText(null);
+                this.view.updateUpgradesText(null);
                 this.view.updatePriceText("");
             });
         };
@@ -128,7 +129,8 @@ class Controller {
                 `${element.name}UpgradeButton`
             );
             upgradeButtons.addEventListener("pointerenter", () => {
-                this.view.updateAmountText(element.amount)
+                this.view.updateAmountText(element.amount);
+                this.view.updateUpgradesText(element);
                 this.view.updatePriceText(`-${element.getUpgradePrice().toFixed(2)}$`);
             });
             upgradeButtons.addEventListener("click", async () => {
@@ -141,11 +143,13 @@ class Controller {
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementSprite(element);
-                this.view.updateAmountText(element.amount)
+                this.view.updateAmountText(element.amount);
+                this.view.updateUpgradesText(element);
                 this.view.updatePriceText(`-${element.getUpgradePrice().toFixed(2)}$`);
             });
             upgradeButtons.addEventListener("pointerleave", () => {
-                this.view.updateAmountText(null)
+                this.view.updateAmountText(null);
+                this.view.updateUpgradesText(null);
                 this.view.updatePriceText("");
             });
         };
