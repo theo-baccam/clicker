@@ -74,6 +74,7 @@ class Controller {
             let element = this.model.elements[i];
             let buyButton = document.getElementById(`${element.name}BuyButton`);
             buyButton.addEventListener("pointerenter", () => {
+                this.view.updateAmountText(element.amount)
                 this.view.updatePriceText(`-${element.getBuyPrice().toFixed(2)}$`);
             });
             buyButton.addEventListener("click", async () => {
@@ -86,9 +87,11 @@ class Controller {
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementSprite(element);
+                this.view.updateAmountText(element.amount)
                 this.view.updatePriceText(`-${element.getBuyPrice().toFixed(2)}$`);
             });
             buyButton.addEventListener("pointerleave", () => {
+                this.view.updateAmountText(null)
                 this.view.updatePriceText("");
             });
         };
@@ -99,6 +102,7 @@ class Controller {
             let element = this.model.elements[i];
             let sellButton = document.getElementById(`${element.name}SellButton`);
             sellButton.addEventListener("pointerenter", () => {
+                this.view.updateAmountText(element.amount)
                 this.view.updatePriceText(`+${element.getSellPrice().toFixed(2)}$`);
             });
             sellButton.addEventListener("click", async () => {
@@ -107,9 +111,11 @@ class Controller {
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementSprite(element);
+                this.view.updateAmountText(element.amount)
                 this.view.updatePriceText(`+${element.getSellPrice().toFixed(2)}$`);
             });
             sellButton.addEventListener("pointerleave", () => {
+                this.view.updateAmountText(null)
                 this.view.updatePriceText("");
             });
         };
@@ -122,6 +128,7 @@ class Controller {
                 `${element.name}UpgradeButton`
             );
             upgradeButtons.addEventListener("pointerenter", () => {
+                this.view.updateAmountText(element.amount)
                 this.view.updatePriceText(`-${element.getUpgradePrice().toFixed(2)}$`);
             });
             upgradeButtons.addEventListener("click", async () => {
@@ -134,9 +141,11 @@ class Controller {
                 await this.model.saveGameState();
                 this.view.displayTotalPoints(this.model.points);
                 this.view.displayElementSprite(element);
+                this.view.updateAmountText(element.amount)
                 this.view.updatePriceText(`-${element.getUpgradePrice().toFixed(2)}$`);
             });
             upgradeButtons.addEventListener("pointerleave", () => {
+                this.view.updateAmountText(null)
                 this.view.updatePriceText("");
             });
         };
